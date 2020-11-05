@@ -1,16 +1,16 @@
 <template>
   <div class="flex flex-row items-center p-5">
     <TrackImage
-      class="w-48 w-48"
+      class="h-72 w-72"
       :class="className"
       :progress-percent="progress"
       :image="image"
     />
-    <div class="ml-5">
-      <div class="uppercase font-bold text-4xl text-left text-white">
+    <div class="ml-10">
+      <div class="uppercase font-bold text-6xl text-left text-white">
         {{ name }}
       </div>
-      <div class="tracking-wide font-medium text-white text-left">
+      <div class="tracking-wide font-medium text-3xl text-white text-left">
         {{ artistsList }}
       </div>
     </div>
