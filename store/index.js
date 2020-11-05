@@ -23,8 +23,6 @@ export const mutations = {
     state.isPlaying = isPlaying
   },
   progressChange(state, { progress, duration }) {
-    console.log(`progress ${progress}`)
-    console.log(`duration ${duration}`)
     state.trackProgress = (progress / duration) * 100
   },
   recentlyPlayedChange(state, recentlyPlayed) {
@@ -43,7 +41,7 @@ export const actions = {
       //   if (is_connected) {
       const {
         data: { song, isPlaying },
-      } = await axios.get(`http://localhost:3000/api/spotify/now-playing`)
+      } = await axios.get(`${process.env.CLIENT_URL}api/spotify/now-playing`)
 
       commit('nowPlayingChange', song)
       commit('isPlayingChange', isPlaying)

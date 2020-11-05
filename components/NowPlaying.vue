@@ -1,32 +1,43 @@
 <template>
   <div class="flex flex-row items-center p-5">
-    <img
-      v-if="image"
-      class="h-32 w-32 rounded-3xl"
-      :src="image"
-      alt="Album Artwork"
-    />
+    <aside>
+      <!-- <img
+        v-if="image"
+        class="h-32 w-32 rounded-3xl z-10"
+        :src="image"
+        alt="Album Artwork"
+      /> -->
+      <Progress
+        class="w-48 w-48"
+        :class="className"
+        :progress-percent="progress"
+        :image="image"
+      />
+    </aside>
     <div class="ml-5">
-      <div class="uppercase font-bold text-left text-white">
+      <div class="uppercase font-bold text-4xl text-left text-white">
         {{ name }}
       </div>
       <div class="tracking-wide font-medium text-white text-left">
         {{ artistsList }}
-      </div>
-      <div class="text-white">
-        {{ progress }}
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Progress from './Progress.vue'
+
 export default {
+  components: { Progress },
   props: ['isPlaying', 'nowPlaying'],
   data() {
     return { staleTimer: '', trackTimer: '' }
   },
   computed: {
+    className() {
+      return this.isPlaying ? '' : 'is-paused'
+    },
     name() {
       return this.nowPlaying.name
     },
@@ -42,7 +53,7 @@ export default {
       )
     },
     progress() {
-      return this.$store.state.trackProgress
+      return this.$store.state.trackProgress.toFixed(2)
     },
     artistsList() {
       const { artists } = this.nowPlaying
@@ -86,7 +97,7 @@ export default {
       const until = now + remainder
       this.trackTimer = setInterval(() => {
         const newNow = Date.now()
-        if (newNow < until + 2500) {
+        if (newNow < until + 1000) {
           const newRemainder = until - newNow
           const newProgressMs = duration - newRemainder
           this.updateProgress(newProgressMs, duration)
