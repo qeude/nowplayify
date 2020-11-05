@@ -33,19 +33,11 @@ export const mutations = {
 export const actions = {
   async nuxtServerInit({ commit }) {
     try {
-      //   const {
-      //     data: { is_connected: isConnected },
-      //   } = await axios.get(`http://localhost:3000/toto`)
-
-      //   commit('connectionChange', is_connected)
-      //   if (is_connected) {
       const {
         data: { song, isPlaying },
       } = await axios.get(`${process.env.CLIENT_URL}api/spotify/now-playing`)
-
       commit('nowPlayingChange', song)
       commit('isPlayingChange', isPlaying)
-      //   }
     } catch (err) {
       console.error(err)
     }

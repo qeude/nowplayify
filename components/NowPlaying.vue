@@ -1,19 +1,11 @@
 <template>
   <div class="flex flex-row items-center p-5">
-    <aside>
-      <!-- <img
-        v-if="image"
-        class="h-32 w-32 rounded-3xl z-10"
-        :src="image"
-        alt="Album Artwork"
-      /> -->
-      <Progress
-        class="w-48 w-48"
-        :class="className"
-        :progress-percent="progress"
-        :image="image"
-      />
-    </aside>
+    <TrackImage
+      class="w-48 w-48"
+      :class="className"
+      :progress-percent="progress"
+      :image="image"
+    />
     <div class="ml-5">
       <div class="uppercase font-bold text-4xl text-left text-white">
         {{ name }}
@@ -26,10 +18,10 @@
 </template>
 
 <script>
-import Progress from './Progress.vue'
+import TrackImage from './TrackImage.vue'
 
 export default {
-  components: { Progress },
+  components: { TrackImage },
   props: ['isPlaying', 'nowPlaying'],
   data() {
     return { staleTimer: '', trackTimer: '' }
@@ -47,17 +39,16 @@ export default {
         const { url } = album.images[0]
         return url
       }
-      return (
-        image ||
-        'https://developer.spotify.com/assets/branding-guidelines/icon2@2x.png'
-      )
+      return image || 'https://i.imgur.com/r8vPsMN.jpg'
     },
     progress() {
       return this.$store.state.trackProgress.toFixed(2)
     },
     artistsList() {
       const { artists } = this.nowPlaying
-      return artists ? artists.map((artist) => artist.name).join(', ') : null
+      return artists
+        ? artists.map((artist) => artist.name).join(', ')
+        : 'Nothing is currently playing.'
     },
   },
   created() {
