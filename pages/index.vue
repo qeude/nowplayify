@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-900">
+  <div class="bg-black">
     <div class="container">
       <div>
         <NowPlaying :now-playing="track" :is-playing="isPlaying" />
