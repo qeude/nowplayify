@@ -45,7 +45,7 @@
         fill="none"
         x="0"
         y="0"
-        rx="3"
+        rx="2.5"
         height="25"
         width="25"
       ></rect>
