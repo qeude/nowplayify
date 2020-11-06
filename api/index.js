@@ -27,9 +27,6 @@ const getAccessToken = async () => {
       refresh_token: `${process.env.SPOTIFY_REFRESH_TOKEN}`,
     },
   })
-  // .catch(({ response }) => {
-  //   console.log(response)
-  // })
   return response.data
 }
 

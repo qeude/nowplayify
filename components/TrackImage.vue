@@ -1,7 +1,7 @@
 <template>
   <div aria-hidden="true">
     <svg
-      class="album rounded-3xl w-32 h-32"
+      class="album rounded-3xl"
       viewBox="0 0 25 25"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
@@ -33,8 +33,8 @@
     >
       <defs>
         <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#1DB954"></stop>
-          <stop offset="25%" stop-color="#1DB954"></stop>
+          <stop offset="0%" stop-color="#4ac571"></stop>
+          <stop offset="25%" stop-color="#4ac571"></stop>
           <stop offset="90%" stop-color="#1DB954"></stop>
           <stop offset="100%" stop-color="#1DB954"></stop>
         </linearGradient>
@@ -81,7 +81,7 @@ svg.progress {
 }
 .bar {
   stroke: url(#gradient);
-  stroke-width: 0.1em;
+  stroke-width: 0.15em;
   transform: rotate(0deg);
   transform-origin: center;
   animation: fill 2s reverse;
