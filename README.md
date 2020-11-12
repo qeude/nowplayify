@@ -1,4 +1,4 @@
-# nowplayify
+# 🔊 nowplayify
 
 ## Build Setup
 
