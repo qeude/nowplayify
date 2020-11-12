@@ -20,17 +20,6 @@ export const mutations = {
 }
 
 export const actions = {
-  // async login() {
-  //   try {
-  //     const response = await api.auth.getUserAuthURL()
-  //     if (response.data) {
-  //       window.location.href = response.data
-  //     }
-  //   } catch (e) {
-  //     console.log(e)
-  //   }
-  // },
-
   async refreshAccessToken({ commit, dispatch }) {
     try {
       const response = await api.auth.getAccessToken()
@@ -67,13 +56,3 @@ export const actions = {
     commit('setExpiryTime', time)
   },
 }
-
-// const module = {
-//   namespaced: true,
-//   state,
-//   getters,
-//   mutations,
-//   actions,
-// }
-
-// export default module
