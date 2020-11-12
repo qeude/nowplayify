@@ -38,7 +38,6 @@ export default {
     spotifyId: process.env.SPOTIFY_CLIENT_ID,
     clientUrl: process.env.CLIENT_URL,
   },
-  serverMiddleware: ['~/api'],
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 

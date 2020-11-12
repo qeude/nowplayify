@@ -41,7 +41,7 @@
       </defs>
       <rect
         class="bar"
-        :stroke-dasharray="`${progressPercent} 100`"
+        :stroke-dasharray="`${progress} 100`"
         fill="none"
         x="0"
         y="0"
@@ -54,8 +54,23 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  props: ['progressPercent', 'image'],
+  props: {
+    image: {
+      type: String,
+      default: 'https://i.imgur.com/r8vPsMN.jpg',
+    },
+  },
+  computed: {
+    ...mapGetters('player', {
+      progressPercentage: 'getProgressPercentage',
+    }),
+    progress() {
+      return this.progressPercentage
+    },
+  },
 }
 </script>
 
