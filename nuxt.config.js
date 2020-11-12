@@ -35,8 +35,9 @@ export default {
     '@nuxtjs/dotenv',
   ],
   env: {
-    spotifyId: process.env.SPOTIFY_CLIENT_ID,
-    clientUrl: process.env.CLIENT_URL,
+    spotifyCliendId: process.env.SPOTIFY_CLIENT_ID,
+    spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+    spotifyRefreshToken: process.env.SPOTIFY_REFRESH_TOKEN,
   },
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
