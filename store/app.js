@@ -17,7 +17,6 @@ export const actions = {
     commit('setNotFound', status)
   },
   init({ dispatch }) {
-    require('dotenv').config()
     dispatch('player/init', null, { root: true })
   },
 }
