@@ -36,7 +36,7 @@ export const actions = {
   login({ commit, dispatch }) {
     return new Promise((resolve, reject) => {
       const getLoginURL = (scopes) => {
-        return `http://localhost:5000/login?scope=${encodeURIComponent(
+        return `${process.env.authApiUrl}login?scope=${encodeURIComponent(
           scopes.join(' ')
         )}`
       }
