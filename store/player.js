@@ -28,8 +28,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async init({ commit, rootGetters, dispatch }) {
-    await dispatch('auth/refreshAccessToken', null, { root: true })
+  init({ commit, rootGetters, dispatch }) {
     const loop = async () => {
       await dispatch('setPlayback')
     }

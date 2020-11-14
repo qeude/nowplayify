@@ -23,7 +23,7 @@ const createResponseInterceptor = (store) => {
     }
 
     try {
-      store.dispatch('auth/refreshAccessToken')
+      store.dispatch('auth/login')
     } catch (e) {
       console.error(e)
     }

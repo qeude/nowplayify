@@ -1,20 +1,25 @@
 import request from './request'
 
-const basic = Buffer.from(
-  `${process.env.spotifyCliendId}:${process.env.spotifyClientSecret}`
-).toString('base64')
+// const basic = Buffer.from(
+//   `${process.env.spotifyCliendId}:${process.env.spotifyClientSecret}`
+// ).toString('base64')
 
 export default {
-  getAccessToken() {
-    return request.post('token', null, {
-      headers: {
-        Authorization: `Basic ${basic}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
+  getUserAuthURL(scopes) {
+    return request.get(`login?scope=${encodeURIComponent(scopes.join(' '))}`)
+  },
+
+  getToken(refreshToken) {
+    return request.post(
+      'token',
+      {
+        refresh_token: `${refreshToken}`,
       },
-      params: {
-        grant_type: 'refresh_token',
-        refresh_token: `${process.env.spotifyRefreshToken}`,
-      },
-    })
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
   },
 }

@@ -26,7 +26,6 @@ export default {
   },
   methods: {
     ...mapActions({
-      refreshToken: 'auth/refreshAccessToken',
       init: 'app/init',
     }),
   },

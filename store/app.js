@@ -16,7 +16,8 @@ export const actions = {
   notFoundPage({ commit }, status) {
     commit('setNotFound', status)
   },
-  init({ dispatch }) {
+  async init({ dispatch }) {
+    await dispatch('auth/init', null, { root: true })
     dispatch('player/init', null, { root: true })
   },
 }

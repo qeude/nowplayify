@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: 'https://accounts.spotify.com/api/',
+  baseURL: `${process.env.authApiUrl}`,
 })
 
 export default request
