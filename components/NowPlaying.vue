@@ -1,17 +1,18 @@
 <template>
-  <div class="flex items-center justify-between p-10">
-    <TrackImage class="h-72 w-72 flex-none" :class="className" :image="image" />
-    <div class="ml-10 flex flex-col items-start">
+  <div class="flex flex-row flex-grow items-center p-24">
+    <TrackImage class="h-64 w-64" :image="image" :blurred="!isPlaying" />
+    <div class="ml-10 flex-1">
       <div
         class="uppercase tracking-tight font-extrabold text-5xl text-left text-white break-normal"
       >
         {{ name }}
       </div>
       <div
-        class="tracking-tight font-semibold text-3xl text-white text-left w-auto inline-block"
+        class="tracking-tight font-semibold text-3xl text-white text-left w-auto inline-block pb-4"
       >
         {{ artistsList }}
       </div>
+      <ProgressBar />
     </div>
   </div>
 </template>
@@ -19,18 +20,16 @@
 <script>
 import { mapGetters } from 'vuex'
 import TrackImage from './TrackImage.vue'
+import ProgressBar from './ProgressBar.vue'
 
 export default {
-  components: { TrackImage },
+  components: { TrackImage, ProgressBar },
   computed: {
     ...mapGetters('player', {
       playback: 'getPlayback',
       isPlaying: 'isPlaying',
       progressPercentage: 'getProgressPercentage',
     }),
-    className() {
-      return this.isPlaying ? '' : 'is-paused'
-    },
     name() {
       return this.playback.item?.name || ''
     },

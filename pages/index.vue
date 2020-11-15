@@ -1,9 +1,7 @@
 <template>
-  <div class="bg-black">
-    <div class="container">
-      <div>
-        <NowPlaying />
-      </div>
+  <div class="h-screen bg-black">
+    <div class="container mx-auto h-full flex items-center">
+      <NowPlaying />
     </div>
   </div>
 </template>
@@ -32,13 +30,4 @@ export default {
 }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-</style>
+<style></style>
