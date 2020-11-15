@@ -1,5 +1,5 @@
 <template>
-  <div class="image-container rounded-3xl">
+  <div class="image-container rounded-3xl sm:rounded-xl">
     <img :src="image" :class="imageClass" />
   </div>
 </template>
