@@ -1,9 +1,9 @@
 <template>
-  <div class="p-5">
-    <div class="text-3xl text-white font-extrabold p-5">
+  <div class="pl-5 pr-5 pb-5 flex-grow items-center">
+    <div class="text-3xl text-white font-extrabold pl-5 pb-5">
       Last month top tracks
     </div>
-    <div class="grid grid-cols-2 grid-rows-5 grid-flow-col">
+    <div class="grid grid-cols-2 grid-rows-5 grid-flow-col gap-2">
       <Track
         v-for="(track, index) in tracks"
         :key="track"

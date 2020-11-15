@@ -1,8 +1,8 @@
 <template>
   <div class="h-screen bg-black">
-    <div class="container mx-auto h-full flex items-center">
-      <NowPlaying v-if="isPlaying" />
-      <TopTracks v-else />
+    <div class="container mx-auto h-full flex flex-col">
+      <NowPlaying :class="nowPlayingClasses" :height="nowPlayingHeight" />
+      <TopTracks v-if="!isPlaying" />
     </div>
   </div>
 </template>
@@ -21,8 +21,11 @@ export default {
       notFound: 'app/notFound',
       isPlaying: 'player/isPlaying',
     }),
-    visible() {
-      return false
+    nowPlayingClasses() {
+      return this.isPlaying ? 'p-24' : 'transform self-end pr-10'
+    },
+    nowPlayingHeight() {
+      return this.isPlaying ? '64' : '20'
     },
   },
   mounted() {

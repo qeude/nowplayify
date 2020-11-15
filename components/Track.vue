@@ -1,14 +1,14 @@
 <template>
-  <div class="flex flex-row flex-grow items-center p-5">
-    <div class="text-white font-extrabold">{{ position }}#</div>
-    <TrackImage class="h-20 w-20 ml-5" :image="image" />
+  <div class="flex flex-row flex-grow items-center">
+    <div class="text-white font-extrabold w-8">{{ position }}#</div>
+    <TrackImage class="h-16 w-16 ml-3" :image="image" />
     <div class="ml-5 flex-1">
       <div
-        class="uppercase tracking-tight font-extrabold text-left text-white break-normal"
+        class="uppercase tracking-tight font-extrabold text-left text-white break-normal text-sm"
       >
         {{ name }}
       </div>
-      <div class="tracking-tight text-white text-left w-auto inline-block pb-4">
+      <div class="tracking-tight text-white text-left text-sm">
         {{ artistsList }}
       </div>
     </div>
