@@ -18,6 +18,6 @@ export const actions = {
   },
   async init({ dispatch }) {
     await dispatch('auth/init', null, { root: true })
-    dispatch('player/init', null, { root: true })
+    await dispatch('player/init', null, { root: true })
   },
 }

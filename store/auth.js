@@ -26,7 +26,6 @@ export const mutations = {
 
 export const actions = {
   async init({ commit, dispatch }) {
-    console.log('init auth')
     const response = await dispatch('fetchToken')
     commit('setAccessToken', response.data.access_token || '')
     commit('setExpiresIn', response.data.expires_in || '')
@@ -35,13 +34,10 @@ export const actions = {
 
   login({ commit, dispatch }) {
     return new Promise((resolve, reject) => {
-      const getLoginURL = (scopes) => {
-        return `${process.env.authApiUrl}login?scope=${encodeURIComponent(
-          scopes.join(' ')
-        )}`
-      }
-
-      const url = getLoginURL(['user-read-playback-state'])
+      const url = api.auth.getUserAuthURL([
+        'user-read-playback-state',
+        'user-top-read',
+      ])
 
       const width = 450
       const height = 730
@@ -51,18 +47,15 @@ export const actions = {
       window.addEventListener(
         'message',
         (event) => {
-          console.log(event)
           try {
             const hash = JSON.parse(event.data)
             if (hash.type === 'access_token') {
-              console.log('setAccess')
               commit('setAccessToken', hash.access_token)
               commit('setExpiresIn', hash.expires_in)
               dispatch('onNewAccessToken')
               if (this.accessToken === '') {
                 reject(Error())
               } else {
-                console.log('refreshToken')
                 const refreshToken = hash.refresh_token
                 commit('setRefreshToken', refreshToken)
                 resolve(hash.access_token)
