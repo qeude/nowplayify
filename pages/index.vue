@@ -24,7 +24,7 @@ export default {
     nowPlayingClasses() {
       return this.isPlaying
         ? 'h-64 m-24'
-        : 'self-end mr-10 mt-5 mb-3 h-24 w-1/3'
+        : 'self-end sm:pl-10 sm:pr-10 mt-5 mb-3 h-24 w-full md:w-1/2 lg:w-1/2'
     },
   },
   mounted() {

@@ -3,7 +3,7 @@
     <TrackImage :image="image" :blurred="!isPlaying" />
     <div class="ml-5 flex-1">
       <div
-        class="uppercase tracking-tight font-extrabold text-sm text-left text-white break-normal name"
+        class="uppercase tracking-tight font-extrabold text-sm text-left text-white break-normal"
       >
         {{ name }}
       </div>

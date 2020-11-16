@@ -1,13 +1,8 @@
 <template>
   <div
-    :class="borderClass"
-    class="flex content-center flex-wrap w-full rounded-3xl border-solid border border-white mt-2"
+    class="flex content-center flex-wrap w-full rounded-3xl border-solid border border-white mt-2 h-3"
   >
-    <div
-      :style="style"
-      :class="lineClass"
-      class="ml-1 mr-1 rounded-3xl bg-white"
-    ></div>
+    <div :style="style" class="ml-1 mr-1 rounded-3xl bg-white h-1"></div>
   </div>
 </template>
 
@@ -30,12 +25,6 @@ export default {
     },
     style() {
       return `width: ${this.progressPercentage}%`
-    },
-    borderClass() {
-      return `h-${this.height}`
-    },
-    lineClass() {
-      return `h-${this.height - 2}`
     },
   },
 }
