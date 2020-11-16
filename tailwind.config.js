@@ -5,12 +5,7 @@ module.exports = {
   },
   purge: [],
   theme: {
-    extend: {
-      scale: {
-        25: '.25',
-        30: '.30',
-      },
-    },
+    extend: {},
   },
   variants: {},
   plugins: [],

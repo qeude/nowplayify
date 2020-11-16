@@ -7,6 +7,7 @@
       <Track
         v-for="(track, index) in tracks"
         :key="track"
+        class="h-16"
         :track="track"
         :position="index + 1"
       />

@@ -1,6 +1,6 @@
 <template>
-  <div class="image-container rounded-3xl sm:rounded-xl">
-    <img :src="image" :class="imageClass" />
+  <div class="rounded-3xl sm:rounded-xl h-full overflow-hidden">
+    <img :src="image" :class="imageClass" class="h-full" />
   </div>
 </template>
 
@@ -33,9 +33,5 @@ export default {
 img {
   filter: blur(0px);
   transition: all 600ms ease-out;
-}
-
-.image-container {
-  overflow: hidden;
 }
 </style>

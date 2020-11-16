@@ -1,8 +1,13 @@
 <template>
   <div
-    class="flex content-center flex-wrap w-full h-4 rounded-3xl border-solid border border-white"
+    :class="borderClass"
+    class="flex content-center flex-wrap w-full rounded-3xl border-solid border border-white mt-2"
   >
-    <div :style="style" class="h-2 ml-1 mr-1 rounded-3xl bg-white"></div>
+    <div
+      :style="style"
+      :class="lineClass"
+      class="ml-1 mr-1 rounded-3xl bg-white"
+    ></div>
   </div>
 </template>
 
@@ -10,6 +15,12 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  props: {
+    height: {
+      type: Number,
+      default: 3,
+    },
+  },
   computed: {
     ...mapGetters('player', {
       progressPercentage: 'getProgressPercentage',
@@ -19,6 +30,12 @@ export default {
     },
     style() {
       return `width: ${this.progressPercentage}%`
+    },
+    borderClass() {
+      return `h-${this.height}`
+    },
+    lineClass() {
+      return `h-${this.height - 2}`
     },
   },
 }

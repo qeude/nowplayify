@@ -1,17 +1,13 @@
 <template>
-  <div class="flex flex-row flex-grow items-center">
-    <TrackImage :class="imageClasses" :image="image" :blurred="!isPlaying" />
-    <div :class="margin">
+  <div class="flex flex-row items-center">
+    <TrackImage :image="image" :blurred="!isPlaying" />
+    <div class="ml-5 flex-1">
       <div
-        class="uppercase tracking-tight font-extrabold text-left text-white break-normal"
-        :class="nameClasses"
+        class="uppercase tracking-tight font-extrabold text-sm text-left text-white break-normal name"
       >
         {{ name }}
       </div>
-      <div
-        class="tracking-tight font-semibold text-white text-left w-auto inline-block"
-        :class="[artistsClasses, padding]"
-      >
+      <div class="tracking-tight text-sm text-white text-left">
         {{ artistsList }}
       </div>
       <ProgressBar />
@@ -26,12 +22,6 @@ import ProgressBar from './ProgressBar.vue'
 
 export default {
   components: { TrackImage, ProgressBar },
-  props: {
-    height: {
-      type: Number,
-      default: 64,
-    },
-  },
   computed: {
     ...mapGetters('player', {
       playback: 'getPlayback',
@@ -56,21 +46,14 @@ export default {
         ? artists.map((artist) => artist.name).join(', ')
         : 'Nothing is currently playing.'
     },
-    imageClasses() {
-      return `h-${this.height} w-${this.height}`
-    },
-    nameClasses() {
-      return this.height >= 42 ? 'text-5xl' : ''
-    },
-    artistsClasses() {
-      return this.height >= 42 ? 'text-3xl' : ''
-    },
-    padding() {
-      return this.height >= 42 ? 'pt-4 pb-4' : 'pt-2 pb-3'
-    },
-    margin() {
-      return this.height >= 42 ? 'ml-10' : 'ml-5'
-    },
   },
 }
 </script>
+<style>
+.name {
+  font-size: 3vh;
+}
+.artists {
+  font-size: 2vh;
+}
+</style>

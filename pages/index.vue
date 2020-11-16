@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen bg-black">
-    <div class="container mx-auto h-full flex flex-col">
-      <NowPlaying :class="nowPlayingClasses" :height="nowPlayingHeight" />
+    <div class="container h-full mx-auto flex flex-col justify-center">
+      <NowPlaying :class="nowPlayingClasses" />
       <TopTracks v-if="!isPlaying" />
     </div>
   </div>
@@ -22,10 +22,9 @@ export default {
       isPlaying: 'player/isPlaying',
     }),
     nowPlayingClasses() {
-      return this.isPlaying ? 'p-24' : 'transform self-end pr-10'
-    },
-    nowPlayingHeight() {
-      return this.isPlaying ? '64' : '20'
+      return this.isPlaying
+        ? 'h-64 m-24'
+        : 'self-end mr-10 mt-5 mb-3 h-24 w-1/3'
     },
   },
   mounted() {
