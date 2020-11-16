@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-row items-center">
     <TrackImage :image="image" :blurred="!isPlaying" class="flex-initial" />
-    <div class="ml-5 flex-grow">
+    <div class="ml-5 flex-1">
       <div
         class="uppercase tracking-tight font-extrabold text-sm text-left text-white break-normal"
       >
