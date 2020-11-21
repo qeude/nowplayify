@@ -10,12 +10,6 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  props: {
-    height: {
-      type: Number,
-      default: 3,
-    },
-  },
   computed: {
     ...mapGetters('player', {
       progressPercentage: 'getProgressPercentage',

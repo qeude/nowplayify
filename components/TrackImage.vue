@@ -1,6 +1,6 @@
 <template>
-  <div class="rounded-3xl sm:rounded-xl h-full overflow-hidden">
-    <img :src="image" :class="imageClass" class="h-full" />
+  <div class="rounded-3xl sm:rounded-xl overflow-hidden">
+    <img :src="image" :class="imageClass" />
   </div>
 </template>
 

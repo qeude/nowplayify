@@ -1,13 +1,19 @@
 <template>
   <div class="flex flex-row items-center">
-    <TrackImage :image="image" :blurred="!isPlaying" class="flex-initial" />
+    <TrackImage
+      :image="image"
+      :blurred="!isPlaying"
+      class="flex-initial"
+      :class="trackImageClasses"
+    />
     <div class="ml-5 flex-1">
       <div
-        class="uppercase tracking-tight font-extrabold text-sm text-left text-white break-normal"
+        class="uppercase tracking-tight font-extrabold text-left text-white break-normal"
+        :class="nameClasses"
       >
         {{ name }}
       </div>
-      <div class="tracking-tight text-sm text-white text-left">
+      <div class="tracking-tight text-white text-left" :class="artistsClasses">
         {{ artistsList }}
       </div>
       <ProgressBar />
@@ -22,6 +28,13 @@ import ProgressBar from './ProgressBar.vue'
 
 export default {
   components: { TrackImage, ProgressBar },
+  props: {
+    size: {
+      type: String,
+      default: 'small',
+      validator: (value) => ['small', 'large'].includes(value),
+    },
+  },
   computed: {
     ...mapGetters('player', {
       playback: 'getPlayback',
@@ -45,6 +58,15 @@ export default {
       return artists
         ? artists.map((artist) => artist.name).join(', ')
         : 'Nothing is currently playing.'
+    },
+    trackImageClasses() {
+      return this.size === 'small' ? 'h-20 w-20' : 'h-64 w-64'
+    },
+    nameClasses() {
+      return this.size === 'small' ? 'text-lg' : 'text-4xl'
+    },
+    artistsClasses() {
+      return this.size === 'small' ? 'text-lg' : 'text-3xl'
     },
   },
 }

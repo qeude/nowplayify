@@ -3,11 +3,11 @@
     <div class="text-3xl text-white font-extrabold pl-5 pb-5">
       Last month top tracks
     </div>
-    <div class="grid grid-cols-2 grid-rows-5 grid-flow-col gap-2">
+    <div class="grid grid-cols-2 grid-rows-3 grid-flow-col gap-6">
       <Track
         v-for="(track, index) in tracks"
         :key="track"
-        class="h-16"
+        class="h-24"
         :track="track"
         :position="index + 1"
       />
@@ -27,7 +27,7 @@ export default {
       topTracks: 'getTopTracks',
     }),
     tracks() {
-      return this.topTracks || []
+      return this.topTracks.slice(0, 6) || []
     },
   },
 }
