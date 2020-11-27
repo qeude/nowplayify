@@ -12,6 +12,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nuxtjs/tailwindcss": "^3.1.0",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.1",
     "async-redis": "^1.1.7",
@@ -21,7 +22,6 @@
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
-    "@nuxtjs/tailwindcss": "^3.1.0",
     "@vue/test-utils": "^1.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
