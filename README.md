@@ -13,7 +13,7 @@ Mainly done to deploy it on a Raspberry Pi to use it as a decoration frame (on a
 You can find a demo [here](https://nowplayify.herokuapp.com). (Allow pop-up in your browser if nothing happens)
 
 ## 🤯 Backend
-Here is the repository for the backend part. It handles authentication part with the Spotify API.
+[Here](https://github.com/qeude/nowplayify-api) is the repository for the backend part. It handles authentication part with the Spotify API.
 ## 🛠 Install
 ### Backend
 - Run these commands
